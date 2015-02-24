@@ -23,7 +23,9 @@ Chart = (function() {
 						else if (i == 0) {
 							return '';
 						}
-						return numberFormat(v / 0.1 + v) + ' kr';
+						else if (id == 'Höjning') {
+							return numberFormat(app.chart.chart.data()[0].values[1].value + v) + ' kr';
+						}
 					}
 				},
 				empty: {
@@ -71,10 +73,11 @@ Chart = (function() {
 			
 		});
 	}
-	Chart.prototype.addRaise = function() {
+	Chart.prototype.toggleRaise = function(add) {
 		var self = this;
+
 		// Hack: Hide total wage for women
-		d3.selectAll('.c3-texts-Lön text:last-child').attr('opacity',0)
+		d3.selectAll('.c3-texts-Lön text:last-child').attr('opacity', add ? 0 : 1)
 
 		// Write texts
 		app.$shortSentence.text(self.story.sentenceShort);
@@ -82,21 +85,32 @@ Chart = (function() {
 
 
 		// Hide button
-		app.$container.find('.add-raise').slideToggle(500, function() {
-			// Show text
-			app.$sentences.slideToggle();
-		});
-		
-		
+		app.$sentences.slideToggle();
 
-		var newColumns = ['Höjning'].concat(self.story.columns.map(function(column) {
-			var d = app.data[column]
-			return d.raise ? d.salary * 0.1 : 0;
-		}));
-		self.chart.load({
-			columns: [newColumns]
-		});
-		self.chart.groups([['Lön', 'Höjning']]);
+		app.$container.find('.add-raise').toggleClass('hidden');
+		app.$container.find('.remove-raise').toggleClass('hidden');
+		/*.slideToggle(500, function() {
+			// Show text
+			
+		});*/
+		
+		
+		if (add) {
+			var newColumns = ['Höjning'].concat(self.story.columns.map(function(column) {
+				var d = app.data[column]
+				return d.raise - d.salary;
+			}));
+			self.chart.load({
+				columns: [newColumns]
+			});
+			self.chart.groups([['Lön', 'Höjning']]);
+		}
+		else {
+			self.chart.unload({
+				ids: 'Höjning'
+			})
+		}
+		
 	}
 	return Chart;
 })();

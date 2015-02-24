@@ -3,17 +3,17 @@
 		men: {
 			name: 'Män i privat sektor',
 			salary: 33000,
-			raise: false
+			raise: 33000
 		},
 		kvinnorlandsting: {
 			name: 'Kvinnor i landsting',
 			salary: 30700,
-			raise: true
+			raise: 32953
 		},
 		kvinnorkommun: {
 			name: 'Kvinnor i kommuner',
 			salary: 26100,
-			raise: true
+			raise: 28415
 		}
 	};
 	app.getStory = function(key) {
@@ -22,8 +22,8 @@
 	var stories = {
 		'landsting': {
 			columns: ['men', 'kvinnorlandsting'],
-			sentenceShort: 'Nästan.',
-			sentenceLong: 'Med 10 procents löneökning skulle kvinnor anställda i landsting nästa komma ikapp män i privat sektor.'
+			sentenceShort: 'Ja!',
+			sentenceLong: 'Med 10 procents löneökning skulle kvinnor anställda i landsting i stort sett komma ikapp män i privat sektor.'
 		},
 		'kommun': {
 			columns: ['men', 'kvinnorkommun'],
