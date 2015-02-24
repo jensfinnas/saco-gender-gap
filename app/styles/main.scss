@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'BerlingNovaDisplayPro';
+  src: url('/Content/Fonts/2C5E3B_0_0.eot');
+  src: url('/Content/Fonts/2C5E3B_0_0.eot?#iefix') format('embedded-opentype'), url('/Content/Fonts/2C5E3B_0_0.woff2') format('woff2'), url('/Content/Fonts/2C5E3B_0_0.woff') format('woff'), url('/Content/Fonts/2C5E3B_0_0.ttf') format('truetype');
+}
+body {
+  font-family: "proxima-nova", Arial, sans-serif;
+  font-weight: 300;
+  color: #212424;
+}
+.btn {
+	background: #212424;
+	font-weight: 300;
+	border-radius: 6px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	border: 0;
+	padding: 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #666;
+}
+svg {
+	text {
+  		font-family: "proxima-nova", Arial, sans-serif;
+  		font-weight: 300;
+  	}
+}
+.c3-chart-texts,
+.c3-axis-x {
+	text {
+		font-size: 14px;
+	}
+}
+
+
+.sentences {
+	background: #f1f1f1;
+	border-radius: 6px;
+	padding: 20px 20px 15px 20px;
+}
+
+.hidden {
+	display: none;
+}
+@media screen and (min-width: 450px) {
+	.c3-chart-texts,
+	.c3-axis-x {
+		text {
+			font-size: 18px;
+		}
+	}
+}

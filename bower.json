@@ -1,0 +1,9 @@
+{
+  "name": "saco-gender-gap",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "c3": "~0.4.9",
+    "jquery": "~2.1.3"
+  }
+}
